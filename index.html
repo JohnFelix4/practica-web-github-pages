@@ -3,89 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página en GitHub Pages</title>
+    <title>Página Completa con Varias Secciones</title>
     <style>
+        /* Estilo General */
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #7ec8e3, #e8a0c7);
-            color: #333;
+            background-color: #f4f4f4;
         }
-        header {
-            text-align: center;
-            padding: 60px 20px;
+
+        /* Menú de Navegación */
+        nav {
+            background-color: #333;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            z-index: 100;
         }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
             color: white;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-        }
-        p.subtitle {
-            font-size: 1.2rem;
-            color: #fdfdfd;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        .card h2 {
-            margin-top: 0;
-            color: #444;
-        }
-        .btn {
-            display: inline-block;
-            background: #ff6fa8;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 8px;
             text-decoration: none;
-            font-weight: bold;
+            font-size: 18px;
             transition: 0.3s;
         }
-        .btn:hover {
-            background: #ff4f90;
+        nav ul li a:hover {
+            color: #ff6f91;
+        }
+
+        /* Encabezado */
+        header {
+            text-align: center;
+            background-color: #ff6f91;
+            padding: 80px 20px;
+            color: white;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+
+        /* Estilo de secciones */
+        section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff;
+            margin-top: 50px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-in-out;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos para la Galería */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .gallery img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Estilo del currículum */
+        .cv-section {
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .cv-section h2 {
+            font-size: 2rem;
+            color: #333;
+        }
+        .cv-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .cv-section ul li {
+            margin: 10px 0;
+        }
+
+        /* Animación */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            nav ul li {
+                margin: 10px 0;
+            }
+            .gallery {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Bienvenidos a mi Página Web</h1>
-        <p class="subtitle">Esta es una versión más elaborada y bonita creada para mi práctica de despliegue en GitHub Pages.</p>
+
+    <!-- Menú de Navegación -->
+    <nav>
+        <ul>
+            <li><a href="#home">Inicio</a></li>
+            <li><a href="#gallery">Galería</a></li>
+            <li><a href="#cv">Currículum</a></li>
+            <li><a href="#contact">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- Encabezado -->
+    <header id="home">
+        <h1>Bienvenidos a Mi Página Completa</h1>
+        <p>Una página con diferentes secciones: galería, currículum y animaciones.</p>
     </header>
 
-    <div class="container">
-        <div class="card">
-            <h2>¿Qué es esta página?</h2>
-            <p>Esta página fue desplegada utilizando <b>GitHub Pages</b>, un servicio gratuito que permite publicar sitios web estáticos directamente desde un repositorio en GitHub.</p>
+    <!-- Galería de Imágenes -->
+    <section id="gallery" class="animate-on-scroll">
+        <h2>Galería de Imágenes</h2>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300x200" alt="Imagen 1">
+            <img src="https://via.placeholder.com/300x200" alt="Imagen 2">
+            <img src="https://via.placeholder.com/300x200" alt="Imagen 3">
+            <img src="https://via.placeholder.com/300x200" alt="Imagen 4">
         </div>
-        <div class="card">
-            <h2>✨ Características</h2>
+    </section>
+
+    <!-- Currículum -->
+    <section id="cv" class="animate-on-scroll">
+        <h2>Mi Currículum</h2>
+        <div class="cv-section">
+            <h3>Experiencia</h3>
             <ul>
-                <li>Diseño moderno con fondo degradado</li>
-                <li>Tarjetas con sombras</li>
-                <li>Botones interactivos</li>
-                <li>Totalmente responsiva (se adapta a celular)</li>
+                <li><strong>Desarrollador Web</strong> - Empresa ABC (2020 - Presente)</li>
+                <li><strong>Diseñador Gráfico</strong> - Agencia XYZ (2018 - 2020)</li>
             </ul>
         </div>
-        <div class="card">
-            <h2>🔗 Enlace al Repositorio</h2>
-            <p>Puedes ver el código fuente directamente en mi repositorio de GitHub:</p>
-            <a class="btn" href="https://github.com/lidia-perez/practica-web-github-pages" target="_blank">
-                Ver en GitHub
-            </a>
+        <div class="cv-section">
+            <h3>Educación</h3>
+            <ul>
+                <li><strong>Grado en Ciencias de la Computación</strong> - Universidad de la Ciudad (2015 - 2019)</li>
+            </ul>
         </div>
-    </div>
+        <div class="cv-section">
+            <h3>Habilidades</h3>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>Photoshop, Illustrator</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contact" class="animate-on-scroll">
+        <h2>Contacto</h2>
+        <p>Puedes contactarme a través de mi correo electrónico: ejemplo@correo.com</p>
+    </section>
+
+    <!-- Animación de Entrada (cuando se hace scroll) -->
+    <script>
+        // Detecta cuando las secciones entran en el viewport
+        const sections = document.querySelectorAll("section");
+
+        function checkVisibility() {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    section.classList.add("visible");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", checkVisibility);
+        checkVisibility(); // Ejecutar al cargar la página
+    </script>
+
 </body>
 </html>
